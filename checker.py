@@ -7,9 +7,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
-CHANNEL_NAME = "گروه ۱ تلگرام (napsternetv)"
+CHANNEL_NAME = "کانال ۱۴ تلگرام - V2RAYNG0201"
 
-CHANNEL_URL = "https://t.me/s/napsternetv"
+CHANNEL_URL = "https://t.me/s/V2RAYNG0201"
 
 LAST_FILE = "last_message.txt"
 
@@ -63,10 +63,12 @@ def extract_configs(text):
         r"(?:vless|vmess|trojan|ss|ssr)://[^\s]+"
     )
 
-    return re.findall(
+    configs = re.findall(
         pattern,
         text
     )
+
+    return configs
 
 
 
@@ -103,6 +105,7 @@ def send_email(configs):
     msg = MIMEMultipart()
 
     msg["From"] = GMAIL_USER
+
     msg["To"] = GMAIL_TO
 
     msg["Subject"] = (
